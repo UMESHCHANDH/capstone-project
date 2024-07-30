@@ -1,0 +1,33 @@
+include <stdio.h>
+int main() {
+int t1,t2,t3,t4,t5;
+int a = 5 + 3;
+int b = 10 * 2;
+int c = a + b;
+printf("Original: (5 + 3) = %d, (10 * 2) = %d, (%d + %d) = %d\n", a, b, a, b, c);
+int t1 = 5 + 3; // 5 + 3 = 8
+int t2 = 10 * 2; // 10 * 2 = 20
+ int t3 = t1 + t2; // 8 + 20 = 28
+ printf("After Constant Folding: (5 + 3) = %d, (10 * 2) = %d, (%d + %d) = %d\n", t1, t2, t1, t2, t3);
+ printf("Code after Step 3 (Constant Folding):\n");
+ printf(" t1 = 8; // 5 + 3\n");
+ printf(" t2 = 20; // 10 * 2\n");
+ printf(" t3 = t1 + t2; // 8 + 20\n");
+ printf("printf(\"After Constant Folding: (5 + 3) = %%d, (10 * 2) = %%d, (%%d + %%d) = %%d\\n\", t1, t2, t1, t2, t3);\n")
+ t4 = 8 + 20; // 28
+printf("After Constant Propagation and Folding: (8 + 20) = %d\n", t4);
+ t5 = 28;
+printf("Final Result Before Dead Code Elimination: %d\n", t5);
+ printf("Final Optimized: %d\n", 28);
+ return 0;
+OUTPUT:
+Original: (5 + 3) = 8, (10 * 2) = 20, (8 + 20) = 28
+After Constant Folding: (5 + 3) = 8, (10 * 2) = 20, (8 + 20) = 28
+Code after Step 3 (Constant Folding):
+t1 = 8; // 5 + 3
+t2 = 20; // 10 * 2
+t3 = t1 + t2; // 8 + 20
+printf("After Constant Folding: (5 + 3) = %d, (10 * 2) = %d, (%d + %d) = %d\n", t1, t2, t1, t2, t3);
+After Constant Propagation and Folding: (8 + 20) = 28
+Final Result Before Dead Code Elimination: 28
+Final Optimized: 28
